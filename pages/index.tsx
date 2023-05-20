@@ -2,7 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
-import { Text, Stack } from "@chakra-ui/react";
+import { Text, Stack, Flex } from "@chakra-ui/react";
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -21,7 +21,23 @@ export default function Home() {
 			</Head>
 			<main className={`${styles.main} ${inter.className}`}>
 				<div className={styles.grid}>
-					<h1>Dashboard</h1>
+					<Flex direction="column" minWidth="max-content">
+						<Text fontSize="6xl">Hello, Name!</Text>
+						<Tabs variant="soft-rounded" colorScheme="blue">
+							<TabList>
+								<Tab>Upcoming Plans</Tab>
+								<Tab>Past Plans</Tab>
+							</TabList>
+							<TabPanels>
+								<TabPanel>
+									<p>add component here</p>
+								</TabPanel>
+								<TabPanel>
+									<p>add other component here</p>
+								</TabPanel>
+							</TabPanels>
+						</Tabs>
+					</Flex>
 				</div>
 			</main>
 		</>
