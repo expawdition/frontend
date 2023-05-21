@@ -37,7 +37,11 @@ export default function Home() {
 						<Heading as="h1" size="4xl" noOfLines={1}>
 							Hello, Name!
 						</Heading>
-						<Tabs variant="soft-rounded" colorScheme="blue">
+						<Tabs
+							className={styles.tabs}
+							variant="soft-rounded"
+							colorScheme="blue"
+						>
 							<TabList>
 								<Tab>Upcoming Plans</Tab>
 								<Tab>Past Plans</Tab>

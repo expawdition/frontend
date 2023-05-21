@@ -12,9 +12,11 @@
 .headerright {
 	float: right;
 }
-
+/* TABS */
+.tabs {
+	margin-bottom: 20px;
+}
 /* TRIP CARD */
-
 .tripcard {
 	width: 1080px;
 	height: 348px;
@@ -50,7 +52,7 @@
 .shareitenarybutton {
 	border-color: #1a365d;
 	border-width: 1px;
-	background-color: white;
+	background-color: #ffffff;
 	color: #1a365d;
 	border-radius: 6px;
 	margin-right: 12px;
