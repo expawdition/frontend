@@ -11,6 +11,7 @@ import StepFour from "@/components/StepFour";
 import StepFive from "@/components/StepFive";
 import Raccoon from "../public/images/planning-raccoon.png";
 import { useRouter } from "next/router";
+import { css, keyframes } from "@emotion/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -297,21 +298,31 @@ export default function Planner() {
 			stepComponent = null;
 	}
 
+    const spin = keyframes`
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    `;
 	if (loading) {
-		return (
-			<Box
-				textAlign="center"
-				display="flex"
-				justifyContent="center"
-				alignItems="center"
-				w="100%"
-				h="100vh"
-				color="blue.50"
-			>
-				<Spinner />
-			</Box>
-		);
-	}
+        return (
+            <Box
+                textAlign="center"
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
+                flexDirection={"column"}
+                w="100%"
+                h="100vh"
+                backgroundColor="blue.50"
+                opacity={1}
+            >
+                <Box css={css`animation: ${spin} 3s linear infinite;`}>
+                    <Image src="/images/loading-raccoon.svg" alt="Loading..." width={400} height={300} />
+                </Box>
+                <Text mt={20} fontSize="5xl" color="blue.900" fontWeight="extrabold">Generating itinerary...</Text>
+            </Box>
+        );
+    }
+    
 
 	console.log(form);
 	return (
