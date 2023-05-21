@@ -2,7 +2,7 @@ import Head from "next/head";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import Image from "next/image";
-import { Heading, Text, Stack, Flex, Grid, GridItem } from "@chakra-ui/react";
+import { Box, Heading, Text, Stack, Flex, Grid, GridItem } from "@chakra-ui/react";
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
 import TripCard from "@/components/TripCard";
 import Logo from "../images/cmd-f.png";
@@ -31,8 +31,12 @@ export default function Home() {
 				</Flex>
 			</Flex>
 
+			<Box backgroundImage="url('/images/Background image.png')" backgroundPosition="center" backgroundRepeat="no-repeat"
+></Box>
+
 			<main className={`${styles.main} ${inter.className}`}>
 				<div className={styles.grid}>
+					
 					<Flex direction="column" minWidth="max-content">
 						<Heading as="h1" size="4xl" noOfLines={1}>
 							Hello, Name!
