@@ -90,13 +90,6 @@ export default function Planner() {
 		setForm(updatedForm);
 	};
 
-	// const handleInputChange = (fieldName: string, value: any) => {
-	// 	console.log(value);
-	// 	setForm((prevForm: any) => ({
-	// 		...prevForm,
-	// 		[fieldName]: value,
-	// 	}));
-	// };
 	console.log(form);
 	return (
 		<>
@@ -129,9 +122,15 @@ export default function Planner() {
 					</Flex>
 				</Flex>
 				<StepOne form={form} onFormChange={handleFormChange}></StepOne>
-				<StepTwo></StepTwo>
-				<StepThree></StepThree>
-				<StepFour></StepFour>
+				<StepTwo form={form} onFormChange={handleFormChange}></StepTwo>
+				{/* <StepThree
+					form={form}
+					onFormChange={handleFormChange}
+				></StepThree>
+				<StepFour
+					form={form}
+					onFormChange={handleFormChange}
+				></StepFour> */}
 			</main>
 		</>
 	);
