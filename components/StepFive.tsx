@@ -85,12 +85,14 @@ interface StepFiveProps {
 		mustDo: string;
 	}) => void;
 	onPreviousStep: () => void;
+	onClick: (e: any) => Promise<void>;
 }
 
 const StepFive: React.FC<StepFiveProps> = ({
 	form,
 	onFormChange,
 	onPreviousStep,
+	onClick,
 }) => {
 	const handleInputChange = (
 		fieldName: keyof typeof form,
@@ -105,6 +107,10 @@ const StepFive: React.FC<StepFiveProps> = ({
 
 	const handleBack = () => {
 		onPreviousStep();
+	};
+
+	const handleSubmit = (e: any) => {
+		onClick(e);
 	};
 	return (
 		<>
@@ -192,7 +198,7 @@ const StepFive: React.FC<StepFiveProps> = ({
 						<Button
 							className={styles.stepnextbutton}
 							colorScheme="blue"
-							// onClick={onNextStep}
+							onClick={handleSubmit}
 						>
 							Submit
 						</Button>
