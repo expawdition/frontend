@@ -14,7 +14,8 @@ import {
 } from "@chakra-ui/react";
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
 import TripCard from "@/components/TripCard";
-import Logo from "../../images/cmd-f.png";
+import Logo from "/public/images/logo.png";
+import Nugget from "/public/images/nugget.png";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 
@@ -53,10 +54,10 @@ export default function Itinerary({
 
             <Flex className={styles.header} justifyContent="space-between">
                 <Flex className={styles.headerleft}>
-                    <Image className={styles.logo} src={Logo} alt="cmd-f" />
+                    <Image className={styles.logo} src={Logo} alt="logo" />
                 </Flex>
                 <Flex className={styles.headerright}>
-                    <Image className={styles.logo} src={Logo} alt="cmd-f" />
+                    <Image className={styles.logo} src={Nugget} alt="nugget" />
                 </Flex>
             </Flex>
 
