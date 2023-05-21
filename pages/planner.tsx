@@ -1,14 +1,16 @@
 import styles from "@/styles/Home.module.css";
-import { Heading, Text, Flex } from "@chakra-ui/react";
+import { Heading, Text, Flex, Box, Spinner } from "@chakra-ui/react";
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import { useState } from "react";
+import { stringify } from "querystring";
 import StepOne from "@/components/StepOne";
 import StepTwo from "@/components/StepTwo";
 import StepThree from "@/components/StepThree";
 import StepFour from "@/components/StepFour";
 import StepFive from "@/components/StepFive";
 import Raccoon from "../public/images/planning-raccoon.png";
+import { useRouter } from "next/router";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -76,7 +78,6 @@ function CircleOff(props: any) {
 
 export default function Planner() {
 	const [stepState, setStepState] = useState(1);
-
 	const [form, setForm] = useState({
 		date: "",
 		startTime: "",
@@ -89,17 +90,65 @@ export default function Planner() {
 		mustDo: "",
 		wheelChairFriendly: false,
 	});
+	const [loading, setLoading] = useState(false);
+
+	const router = useRouter();
 
 	const handleFormChange = (updatedForm: any) => {
 		setForm(updatedForm);
 	};
-
 	const handleNextStep = () => {
 		setStepState(stepState + 1);
 	};
 
 	const handlePreviousStep = () => {
 		setStepState(stepState - 1);
+	};
+
+	const handleSubmit = async (e: any) => {
+		e.preventDefault();
+		const data = {
+			destination: form.location,
+			date: form.date,
+			startTime: form.startTime,
+			endTime: form.endTime,
+			numberOfPeople: form.numberOfPeople,
+			groupType: form.groupType,
+			budget: form.budget,
+			transportationMethod: form.transportationMethod,
+			mustDo: form.mustDo,
+			wheelChairFriendly: form.wheelChairFriendly,
+		};
+
+		console.log(data);
+
+		try {
+			setLoading(true);
+			console.log("hello");
+
+			const response = await fetch(
+				"http://localhost:3001/trips/create-trip",
+				{
+					method: "POST",
+					body: JSON.stringify(data),
+					headers: {
+						"Content-Type": "application/json",
+					},
+				}
+			);
+
+			const itineraryId = await response.json();
+
+			console.log(itineraryId);
+
+			// get id
+
+			router.push(`/itineraries/${itineraryId}`);
+		} catch (err) {
+			console.log(err);
+		} finally {
+			setLoading(false);
+		}
 	};
 
 	let stepComponent;
@@ -222,7 +271,7 @@ export default function Planner() {
 					form={form}
 					onFormChange={handleFormChange}
 					onPreviousStep={handlePreviousStep}
-					// TODO: add onSubmit
+					onClick={handleSubmit}
 				/>
 			);
 			wizardComponent = (
@@ -246,6 +295,22 @@ export default function Planner() {
 			break;
 		default:
 			stepComponent = null;
+	}
+
+	if (loading) {
+		return (
+			<Box
+				textAlign="center"
+				display="flex"
+				justifyContent="center"
+				alignItems="center"
+				w="100%"
+				h="100vh"
+				color="blue.50"
+			>
+				<Spinner />
+			</Box>
+		);
 	}
 
 	console.log(form);
