@@ -53,7 +53,7 @@ const StepFour: React.FC<StepFourProps> = ({
 						lineHeight="7"
 						fontWeight="bold"
 					>
-						4. Must-Do Activity
+						{"4. Must-Do Activity"}
 					</Text>
 					<StepCardLabel text="Name an activity, place, or restaurant that you’d like to include in your itinerary." />
 					<StepCardLabel text="If you don’t have anything in mind, move on to the next step."></StepCardLabel>
