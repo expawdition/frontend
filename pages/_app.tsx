@@ -4,8 +4,11 @@ import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 
 export const theme = extendTheme({
 	colors: {
-		buttonColor: {
+		seeDetailsButtonColor: {
 			500: "#1A365D",
+		},
+		nextButtonColor: {
+			500: "#3182CE",
 		},
 	},
 });

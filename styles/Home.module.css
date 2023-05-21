@@ -347,3 +347,11 @@
 .stepcardlabel {
 	margin-bottom: 8px;
 }
+
+.stepnextbutton {
+	margin-right: 16px;
+	border-color: #3182ce;
+	border-width: 1px;
+	color: #3182ce;
+	color-scheme: #3182ce;
+}

@@ -53,7 +53,7 @@ export default function TripCard() {
 						</Button>
 						<Button
 							className={styles.seedetailsbutton}
-							colorScheme="buttonColor"
+							colorScheme="seeDetailsButtonColor"
 							color="#ffffff"
 						>
 							See Details
