@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Heading, Text, Stack, Flex, Button, Box } from "@chakra-ui/react";
 import Logo from "/public/images/cmd-f.png";
 import { theme } from "../pages/_app";
+import { ItineraryEvent } from "@/pages";
 
 function Activity(props: any) {
 	return (
@@ -26,10 +27,12 @@ function Activity(props: any) {
 	);
 }
 
-export default function TripCard() {
+export default function TripCard({ date, itineraryEvents }: { date: string, itineraryEvents: ItineraryEvent[] }) {
+	
+
 	return (
 		<>
-			<Flex className={styles.tripcard} direction="column">
+			<Flex className={styles.tripcard} direction="column" mt="30px">
 				<Flex
 					className={styles.tripcardheader}
 					direction="row"
@@ -37,10 +40,10 @@ export default function TripCard() {
 				>
 					<Flex className={styles.tripcardwhen} direction="column">
 						<Text fontSize="2xl" lineHeight="8" fontWeight="bold">
-							May 20, 2023
+							{date}
 						</Text>
 						<Text fontSize="md" lineHeight="6" fontWeight="medium">
-							9:00 AM - 6:00 PM
+							{itineraryEvents[0].estimatedStartTime}
 						</Text>
 					</Flex>
 					<Flex float="right">
@@ -61,7 +64,15 @@ export default function TripCard() {
 					</Flex>
 				</Flex>
 				<Flex direction="row">
-					<Activity
+					{itineraryEvents.map((activity, index) => 
+						<Activity 
+							key={index}
+							pictureURL={activity.photo}
+							place={activity.name}
+							description={activity.description}
+						/>
+					)}
+					{/* <Activity
 						// pictureURL="https://images.unsplash.com/photo-1627328778996-e8582968a0f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
 						place="Vancouver Aquarium"
 						description="Small description of the place in question. These
@@ -84,7 +95,7 @@ export default function TripCard() {
 						place="Vancouver Aquarium"
 						description="Small description of the place in question. These
 					descriptions will be pulled from Google."
-					></Activity>
+					></Activity> */}
 				</Flex>
 			</Flex>
 		</>

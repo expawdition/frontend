@@ -2,6 +2,7 @@ import Head from "next/head";
 import { Inter, Ultra } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import Image from "next/image";
+import { useState, useEffect } from 'react';
 import {
 	Box,
 	Button,
@@ -22,11 +23,41 @@ import Raccoon from "../public/images/home-raccoon.png";
 const inter = Inter({ subsets: ["latin"] });
 // const ultra = Ultra({ subsets: ["latin"] });
 
-export default function Home() {
+export interface ItineraryEvent {
+  photo: string;
+  name: string;
+  description: string;
+  estimatedDuration: string;
+  address: string;
+  estimatedStartTime: string;
+}
+
+export interface Itinerary {
+  date: string;
+  itineraryEvents: ItineraryEvent[];
+}
+
+export default function Home({ dbTrips, error } : { dbTrips: any, error: any }) {
+  const [itineraries, setItineraries] = useState<Itinerary[]>(dbTrips);
+  const [loading, setLoading] = useState(true);
+
+  // Fetching logic
+  useEffect(() => {
+    // fetch('http://localhost:3001/trips/all')
+    //   .then(response => response.json())
+    //   .then(data => {
+    //     if (data.length > 0) {
+    //       setItineraries(data);
+    //     }
+    //   })
+    //   .catch(error => console.error('Error:', error));
+    setLoading(false);
+  }, [loading]);
+
+
 	const handleClickNew = () => {
 		window.location.href = "http://localhost:3000/planner";
 	};
-
 	return (
 		<>
 			<Head>
@@ -97,7 +128,7 @@ export default function Home() {
 						<Image src={Raccoon} alt="raccoon mascot" />
 					</Box>
 
-					<TicketCard></TicketCard>
+					<TicketCard date={itineraries[0].date} itineraryEvent={itineraries[0].itineraryEvents[0]}></TicketCard>
 				</Flex>
 			</Center>
 
@@ -115,12 +146,19 @@ export default function Home() {
 								<Tab>Past Plans</Tab>
 							</TabList>
 							<TabPanels>
-								<TabPanel>
-									<TripCard></TripCard>
-								</TabPanel>
-								<TabPanel>
-									<p>add other component here</p>
-								</TabPanel>
+              <Box display="flex" flexDirection="column">
+                {itineraries.map((itinerary, index) => {
+                console.log('Mapping itinerary:', itinerary); // Log the current itinerary object
+                console.log('Mapping index:', index); // Log the current index
+
+                return (
+                  // <TabPanel key={index}>
+                    <TripCard key={index} date={itinerary.date} itineraryEvents={itinerary.itineraryEvents}></TripCard>
+                  // </TabPanel>
+                );
+              })}
+              </Box>
+
 							</TabPanels>
 						</Tabs>
 					</Flex>
@@ -128,4 +166,28 @@ export default function Home() {
 			</main>
 		</>
 	);
+}
+
+export async function getServerSideProps(context: any) {
+  // const { itinerary } = context.params;
+  // const userId = "AzX1vIPNZ3k21wXtfRQD";
+
+  try {
+      const response = await fetch(`http://localhost:3001/trips/all`);
+      const data = await response.json();
+
+      return {
+          props: {
+              dbTrips: data,
+          },
+      };
+  } catch (err) {
+      console.log(err);
+
+      return {
+          props: {
+              error: true,
+          },
+      };
+  }
 }

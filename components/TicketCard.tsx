@@ -3,9 +3,13 @@ import Image from "next/image";
 import { Heading, Text, Stack, Flex, Button, Box } from "@chakra-ui/react";
 import { theme } from "../pages/_app";
 import { LinkIcon } from "@chakra-ui/icons";
+import { ItineraryEvent } from "@/pages";
 
-export default function TicketCard() {
-	return (
+export default function TicketCard({ date, itineraryEvent }: { date: string, itineraryEvent: ItineraryEvent }) {
+	console.log(date);
+    console.log(itineraryEvent);
+    
+    return (
 		<>
 			<Flex
 				className={styles.ticketcard}
@@ -18,7 +22,7 @@ export default function TicketCard() {
 					Coming up next
 				</Text>
 				<Text fontSize="4xl" lineHeight="10" fontWeight="bold">
-					date placeholder
+					{date}
 				</Text>
 				<Text
 					fontSize="2xl"
@@ -26,17 +30,18 @@ export default function TicketCard() {
 					fontWeight="normal"
 					marginBottom="64px"
 				>
-					time placeholder
+					{itineraryEvent.estimatedStartTime}
 				</Text>
 
 				<Image
-					src=""
+                    // src=""
+					src={itineraryEvent.photo}
 					width={430}
 					height={246}
 					alt="picture should go here"
 				></Image>
 				<Text fontSize="2xl" lineHeight="8" fontWeight="bold">
-					activity name placeholder
+					{itineraryEvent.name}
 				</Text>
 				<Text
 					fontSize="md"
@@ -44,7 +49,7 @@ export default function TicketCard() {
 					fontWeight="medium"
 					marginBottom="32px"
 				>
-					activity description placeholder
+					{itineraryEvent.description}
 				</Text>
 				<Stack direction="row" spacing="16px">
 					<Button colorScheme="blue">See Details</Button>
