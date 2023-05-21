@@ -1,6 +1,6 @@
 /* HEADER */
 .header {
-	background: #bee3f8;
+	background-color: 0, 0, 0, 0.1;
 	height: 64px;
 	padding: 15px;
 }
@@ -177,8 +177,6 @@
 }
 
 .logo {
-	/* position: relative; */
-	width: 40px;
 }
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
@@ -340,8 +338,15 @@
 
 .steponecard {
 	width: 1080px;
-	/* vertical-align: top; */
 	height: 504px;
+	background-color: white;
+	border-radius: 16px;
+	padding: 40px;
+}
+
+.stepfivecard {
+	width: 1080px;
+	/* height: 504px; */
 	background-color: white;
 	border-radius: 16px;
 	padding: 40px;

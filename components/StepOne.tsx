@@ -148,6 +148,7 @@ const StepOne: React.FC<StepOneProps> = ({
 						<Button
 							className={styles.stepnextbutton}
 							onClick={onNextStep}
+							colorScheme="blue"
 						>
 							Next
 						</Button>

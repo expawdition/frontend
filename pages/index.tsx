@@ -16,7 +16,7 @@ import {
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
 import TripCard from "@/components/TripCard";
 import TicketCard from "@/components/TicketCard";
-import Logo from "/public/images/cmd-f.png";
+import Logo from "/public/images/logo.png";
 import Raccoon from "../public/images/home-raccoon.png";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -40,15 +40,25 @@ export default function Home() {
 
 			<Flex className={styles.header} justifyContent="space-between">
 				<Flex className={styles.headerleft}>
-					<Image className={styles.logo} src={Logo} alt="cmd-f" />
+					<Image src={Logo} alt="logo" />
 				</Flex>
-				<Flex className={styles.headerright}>
-					<Image className={styles.logo} src={Logo} alt="cmd-f" />
+				<Flex
+					className={styles.headerright}
+					borderRadius="100px"
+					// borderWidth="1px"
+					borderColor="#1a365d"
+					backgroundColor="white"
+				>
+					<Image
+						src={Logo}
+						alt="profile picture"
+						width={34}
+						height={34}
+					/>
 				</Flex>
 			</Flex>
 
 			<Center
-				// backgroundColor="blue.50"
 				backgroundImage="url('/images/Background.png')"
 				backgroundSize="cover"
 				backgroundPosition="center"

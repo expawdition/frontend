@@ -49,7 +49,7 @@ const StepThree: React.FC<StepThreeProps> = ({
 	};
 	return (
 		<>
-			<Flex className={styles.steponecard} direction="row">
+			<Flex className={styles.stepfivecard} direction="row">
 				<Flex className={styles.steponecardfields} direction="column">
 					<Text
 						className={styles.stepcardtitle}
@@ -80,6 +80,7 @@ const StepThree: React.FC<StepThreeProps> = ({
 						<Stack
 							spacing={[1, 2]}
 							direction={["column", "column"]}
+							marginBottom="20px"
 						>
 							<Checkbox
 								isChecked={form.wheelChairFriendly}
@@ -102,6 +103,7 @@ const StepThree: React.FC<StepThreeProps> = ({
 						<Stack
 							spacing={[1, 2]}
 							direction={["column", "column"]}
+							marginBottom="32px"
 						>
 							<Checkbox value="a">Vegan/Vegetarian</Checkbox>
 							<Checkbox value="b">Gluten-free</Checkbox>
@@ -113,6 +115,7 @@ const StepThree: React.FC<StepThreeProps> = ({
 						<Button
 							className={styles.stepnextbutton}
 							onClick={onNextStep}
+							colorScheme="blue"
 						>
 							Next
 						</Button>

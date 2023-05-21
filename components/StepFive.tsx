@@ -108,7 +108,7 @@ const StepFive: React.FC<StepFiveProps> = ({
 	};
 	return (
 		<>
-			<Flex className={styles.steponecard} direction="row">
+			<Flex className={styles.stepfivecard} direction="row">
 				<Flex className={styles.steponecardfields} direction="column">
 					<Text
 						className={styles.stepcardtitle}
@@ -191,6 +191,7 @@ const StepFive: React.FC<StepFiveProps> = ({
 					<Flex direction="row">
 						<Button
 							className={styles.stepnextbutton}
+							colorScheme="blue"
 							// onClick={onNextStep}
 						>
 							Submit

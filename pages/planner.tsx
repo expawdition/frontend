@@ -265,13 +265,12 @@ export default function Planner() {
 					{wizardComponent}
 				</Flex>
 				{stepComponent}
-				{/* <div className={styles.imageContainer}> */}
+
 				<Image
 					className={styles.planningraccoon}
 					src={Raccoon}
 					alt="raccoon mascot"
 				/>
-				{/* </div> */}
 			</main>
 		</>
 	);
