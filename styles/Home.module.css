@@ -34,6 +34,11 @@
 	height: 660px;
 }
 
+.largeticketcard {
+	width: 1080px;
+	height: 660px;
+}
+
 /* ACTIVITY */
 
 .activitycard {
@@ -77,6 +82,15 @@
 	padding: 6rem;
 	min-height: 100vh;
 	background: #f0faff;
+}
+
+.itin {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	padding: 6rem;
+	min-height: 100vh;
 }
 
 .description {
