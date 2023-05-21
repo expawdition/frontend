@@ -2,6 +2,7 @@ import styles from "@/styles/Home.module.css";
 import { Heading, Text, Flex } from "@chakra-ui/react";
 import { Inter } from "next/font/google";
 import { stringify } from "querystring";
+import StepOne from "@/components/StepOne";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -98,6 +99,7 @@ export default function Planner() {
 						<WizardTextOff text="Review" />
 					</Flex>
 				</Flex>
+				<StepOne></StepOne>
 			</main>
 		</>
 	);

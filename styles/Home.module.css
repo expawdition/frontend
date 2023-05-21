@@ -300,9 +300,10 @@
 	/* background-color: #8796a4; */
 	display: flex;
 	align-items: center;
+	margin-bottom: 32px;
 }
 .wizardtext {
-	margin-right: 8px;
+	margin-right: 10px;
 	vertical-align: middle;
 }
 
@@ -315,7 +316,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	margin-right: 8px;
+	margin-right: 10px;
 }
 
 .circleoff {
@@ -328,5 +329,21 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	margin-right: 8px;
+	margin-right: 10px;
+}
+
+.steponecard {
+	width: 1080px;
+	height: 504px;
+	background-color: white;
+	border-radius: 16px;
+	padding: 40px;
+}
+
+.stepcardtitle {
+	margin-bottom: 20px;
+}
+
+.stepcardlabel {
+	margin-bottom: 8px;
 }
