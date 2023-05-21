@@ -1,7 +1,29 @@
 .header {
 	background: #bee3f8;
 	height: 64px;
+	padding: 15px;
 }
+
+.headerleft {
+	float: left;
+}
+
+.headerright {
+	float: right;
+}
+
+.activitycard {
+	width: 238px;
+	padding: 0px;
+	background-color: #bee3f8;
+}
+
+.activityimage {
+	width: 238px;
+	height: 144px;
+	border-radius: 8px;
+}
+
 .main {
 	display: flex;
 	flex-direction: column;
@@ -123,12 +145,19 @@
 		transform: translateX(4px);
 	}
 }
+.logo {
+	width: 40px;
+}
 
 .tripcard {
 	width: 1080px;
 	height: 348px;
 	background: white;
 	border-radius: 16px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-right: 40px;
+	padding-left: 40px;
 }
 
 @media (prefers-reduced-motion) {

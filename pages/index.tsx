@@ -1,10 +1,11 @@
 import Head from "next/head";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
-import { Heading, Text, Stack, Flex, Image } from "@chakra-ui/react";
+import Image from "next/image";
+import { Heading, Text, Stack, Flex, Grid, GridItem } from "@chakra-ui/react";
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
 import TripCard from "@/components/TripCard";
-import Logo from "frontend/images/cmd-f.png";
+import Logo from "../images/cmd-f.png";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,9 +21,18 @@ export default function Home() {
 				/>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<div className={styles.header}>
-				<Image src="frontend/images/cmd-f" alt="cmd-f" />
-			</div>
+
+			<Flex className={styles.header} justify-content="space-between">
+				{/* <Flex className={styles.headerleft}> */}
+				<p>test</p>
+				<p>test</p>
+				{/* <Image className={styles.logo} src={Logo} alt="cmd-f" /> */}
+				{/* </Flex> */}
+				{/* <Flex className={styles.headerright}> */}
+				{/* <Image className={styles.logo} src={Logo} alt="cmd-f" /> */}
+				{/* </Flex> */}
+			</Flex>
+
 			<main className={`${styles.main} ${inter.className}`}>
 				<div className={styles.grid}>
 					<Flex direction="column" minWidth="max-content">
