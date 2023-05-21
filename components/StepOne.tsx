@@ -27,9 +27,14 @@ interface StepOneProps {
 		transportationMethod: string;
 		location: string;
 	}) => void;
+	onNextStep: () => void;
 }
 
-const StepOne: React.FC<StepOneProps> = ({ form, onFormChange }) => {
+const StepOne: React.FC<StepOneProps> = ({
+	form,
+	onFormChange,
+	onNextStep,
+}) => {
 	const handleInputChange = (
 		fieldName: keyof typeof form,
 		value: string
@@ -39,6 +44,10 @@ const StepOne: React.FC<StepOneProps> = ({ form, onFormChange }) => {
 			[fieldName]: value,
 		};
 		onFormChange(updatedForm);
+	};
+
+	const handleNext = () => {
+		onNextStep();
 	};
 
 	return (
@@ -132,7 +141,12 @@ const StepOne: React.FC<StepOneProps> = ({ form, onFormChange }) => {
 						marginBottom="24px"
 					/>
 					<Flex direction="row">
-						<Button className={styles.stepnextbutton}>Next</Button>
+						<Button
+							className={styles.stepnextbutton}
+							onClick={onNextStep}
+						>
+							Next
+						</Button>
 						<Button>Cancel</Button>
 					</Flex>
 				</Flex>

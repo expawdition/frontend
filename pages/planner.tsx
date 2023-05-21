@@ -73,6 +73,8 @@ function CirleOff(props: any) {
 }
 
 export default function Planner() {
+	const [stepState, setStepState] = useState(1);
+
 	const [form, setForm] = useState({
 		date: "",
 		startTime: "",
@@ -89,6 +91,59 @@ export default function Planner() {
 	const handleFormChange = (updatedForm: any) => {
 		setForm(updatedForm);
 	};
+
+	const handleNextStep = () => {
+		setStepState(stepState + 1);
+	};
+
+	const handlePreviousStep = () => {
+		setStepState(stepState - 1);
+	};
+
+	let stepComponent;
+	switch (stepState) {
+		case 1:
+			stepComponent = (
+				<StepOne
+					form={form}
+					onFormChange={handleFormChange}
+					onNextStep={handleNextStep}
+				/>
+			);
+			break;
+		case 2:
+			stepComponent = (
+				<StepTwo
+					form={form}
+					onFormChange={handleFormChange}
+					onNextStep={handleNextStep}
+					onPreviousStep={handlePreviousStep}
+				/>
+			);
+			break;
+		case 3:
+			stepComponent = (
+				<StepThree
+					form={form}
+					onFormChange={handleFormChange}
+					onNextStep={handleNextStep}
+					onPreviousStep={handlePreviousStep}
+				/>
+			);
+			break;
+		case 4:
+			stepComponent = (
+				<StepFour
+					form={form}
+					onFormChange={handleFormChange}
+					onNextStep={handleNextStep}
+					onPreviousStep={handlePreviousStep}
+				/>
+			);
+			break;
+		default:
+			stepComponent = null;
+	}
 
 	console.log(form);
 	return (
@@ -121,16 +176,7 @@ export default function Planner() {
 						<WizardTextOff text="Review" />
 					</Flex>
 				</Flex>
-				<StepOne form={form} onFormChange={handleFormChange}></StepOne>
-				<StepTwo form={form} onFormChange={handleFormChange}></StepTwo>
-				<StepThree
-					form={form}
-					onFormChange={handleFormChange}
-				></StepThree>
-				<StepFour
-					form={form}
-					onFormChange={handleFormChange}
-				></StepFour>
+				{stepComponent}
 			</main>
 		</>
 	);

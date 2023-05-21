@@ -24,9 +24,16 @@ interface StepTwoProps {
 		numberOfPeople: number;
 		groupType: string;
 	}) => void;
+	onNextStep: () => void;
+	onPreviousStep: () => void;
 }
 
-const StepTwo: React.FC<StepTwoProps> = ({ form, onFormChange }) => {
+const StepTwo: React.FC<StepTwoProps> = ({
+	form,
+	onFormChange,
+	onNextStep,
+	onPreviousStep,
+}) => {
 	const handleInputChange = (
 		fieldName: keyof typeof form,
 		value: string
@@ -36,6 +43,14 @@ const StepTwo: React.FC<StepTwoProps> = ({ form, onFormChange }) => {
 			[fieldName]: value,
 		};
 		onFormChange(updatedForm);
+	};
+
+	const handleNext = () => {
+		onNextStep();
+	};
+
+	const handleBack = () => {
+		onPreviousStep();
 	};
 
 	return (
@@ -96,8 +111,13 @@ const StepTwo: React.FC<StepTwoProps> = ({ form, onFormChange }) => {
 						</Stack>
 					</RadioGroup>
 					<Flex direction="row">
-						<Button className={styles.stepnextbutton}>Next</Button>
-						<Button>Cancel</Button>
+						<Button
+							className={styles.stepnextbutton}
+							onClick={onNextStep}
+						>
+							Next
+						</Button>
+						<Button onClick={onPreviousStep}>Back</Button>
 					</Flex>
 				</Flex>
 			</Flex>

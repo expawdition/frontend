@@ -20,9 +20,16 @@ interface StepThreeProps {
 		budget: string;
 		wheelChairFriendly: boolean;
 	}) => void;
+	onNextStep: () => void;
+	onPreviousStep: () => void;
 }
 
-const StepThree: React.FC<StepThreeProps> = ({ form, onFormChange }) => {
+const StepThree: React.FC<StepThreeProps> = ({
+	form,
+	onFormChange,
+	onNextStep,
+	onPreviousStep,
+}) => {
 	const handleInputChange = (
 		fieldName: keyof typeof form,
 		value: string | boolean
@@ -32,6 +39,13 @@ const StepThree: React.FC<StepThreeProps> = ({ form, onFormChange }) => {
 			[fieldName]: value,
 		};
 		onFormChange(updatedForm);
+	};
+	const handleNext = () => {
+		onNextStep();
+	};
+
+	const handleBack = () => {
+		onPreviousStep();
 	};
 	return (
 		<>
@@ -96,8 +110,13 @@ const StepThree: React.FC<StepThreeProps> = ({ form, onFormChange }) => {
 					</CheckboxGroup>
 
 					<Flex direction="row">
-						<Button className={styles.stepnextbutton}>Next</Button>
-						<Button>Cancel</Button>
+						<Button
+							className={styles.stepnextbutton}
+							onClick={onNextStep}
+						>
+							Next
+						</Button>
+						<Button onClick={onPreviousStep}>Back</Button>
 					</Flex>
 				</Flex>
 			</Flex>

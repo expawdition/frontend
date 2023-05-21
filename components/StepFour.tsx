@@ -9,7 +9,6 @@ import {
 	InputGroup,
 	InputLeftElement,
 } from "@chakra-ui/react";
-import { SearchIcon } from "@chakra-ui/icons";
 import StepCardLabel from "./StepCardLabel";
 
 interface StepFourProps {
@@ -17,9 +16,16 @@ interface StepFourProps {
 		mustDo: string;
 	};
 	onFormChange: (updatedForm: { mustDo: string }) => void;
+	onNextStep: () => void;
+	onPreviousStep: () => void;
 }
 
-const StepFour: React.FC<StepFourProps> = ({ form, onFormChange }) => {
+const StepFour: React.FC<StepFourProps> = ({
+	form,
+	onFormChange,
+	onNextStep,
+	onPreviousStep,
+}) => {
 	const handleInputChange = (
 		fieldName: keyof typeof form,
 		value: string
@@ -29,6 +35,13 @@ const StepFour: React.FC<StepFourProps> = ({ form, onFormChange }) => {
 			[fieldName]: value,
 		};
 		onFormChange(updatedForm);
+	};
+	const handleNext = () => {
+		onNextStep();
+	};
+
+	const handleBack = () => {
+		onPreviousStep();
 	};
 	return (
 		<>
@@ -55,8 +68,13 @@ const StepFour: React.FC<StepFourProps> = ({ form, onFormChange }) => {
 					/>
 
 					<Flex direction="row">
-						<Button className={styles.stepnextbutton}>Next</Button>
-						<Button>Cancel</Button>
+						<Button
+							className={styles.stepnextbutton}
+							onClick={onNextStep}
+						>
+							Next
+						</Button>
+						<Button onClick={onPreviousStep}>Back</Button>
 					</Flex>
 				</Flex>
 			</Flex>
