@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Inter } from "next/font/google";
+import { Inter, Ultra } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import Image from "next/image";
 import {
@@ -20,6 +20,7 @@ import Logo from "/public/images/logo.png";
 import Raccoon from "../public/images/home-raccoon.png";
 
 const inter = Inter({ subsets: ["latin"] });
+// const ultra = Ultra({ subsets: ["latin"] });
 
 export default function Home() {
 	const handleClickNew = () => {
