@@ -22,15 +22,13 @@ export default function Home() {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 
-			<Flex className={styles.header} justify-content="space-between">
-				{/* <Flex className={styles.headerleft}> */}
-				<p>test</p>
-				<p>test</p>
-				{/* <Image className={styles.logo} src={Logo} alt="cmd-f" /> */}
-				{/* </Flex> */}
-				{/* <Flex className={styles.headerright}> */}
-				{/* <Image className={styles.logo} src={Logo} alt="cmd-f" /> */}
-				{/* </Flex> */}
+			<Flex className={styles.header} justifyContent="space-between">
+				<Flex className={styles.headerleft}>
+					<Image className={styles.logo} src={Logo} alt="cmd-f" />
+				</Flex>
+				<Flex className={styles.headerright}>
+					<Image className={styles.logo} src={Logo} alt="cmd-f" />
+				</Flex>
 			</Flex>
 
 			<main className={`${styles.main} ${inter.className}`}>

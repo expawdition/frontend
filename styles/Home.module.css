@@ -1,3 +1,4 @@
+/* HEADER */
 .header {
 	background: #bee3f8;
 	height: 64px;
@@ -12,10 +13,32 @@
 	float: right;
 }
 
+/* TRIP CARD */
+
+.tripcard {
+	width: 1080px;
+	height: 348px;
+	background: white;
+	border-radius: 16px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-right: 40px;
+	padding-left: 40px;
+}
+
+/* ACTIVITY */
+
 .activitycard {
 	width: 238px;
 	padding: 0px;
 	background-color: #bee3f8;
+	margin-right: 16px;
+	color: #1a365d;
+}
+
+.tripcardwhen {
+	color: #1a365d;
+	margin-bottom: 24px;
 }
 
 .activityimage {
@@ -24,6 +47,22 @@
 	border-radius: 8px;
 }
 
+.shareitenarybutton {
+	border-color: #1a365d;
+	border-width: 1px;
+	background-color: white;
+	color: #1a365d;
+	border-radius: 6px;
+	margin-right: 12px;
+}
+
+.seedetailsbutton {
+	background-color: #1a365d;
+	border-radius: 6px;
+	color: white;
+}
+
+/* MAIN BODY */
 .main {
 	display: flex;
 	flex-direction: column;
@@ -132,7 +171,8 @@
 }
 
 .logo {
-	position: relative;
+	/* position: relative; */
+	width: 40px;
 }
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
@@ -144,20 +184,6 @@
 	.card:hover span {
 		transform: translateX(4px);
 	}
-}
-.logo {
-	width: 40px;
-}
-
-.tripcard {
-	width: 1080px;
-	height: 348px;
-	background: white;
-	border-radius: 16px;
-	padding-top: 20px;
-	padding-bottom: 20px;
-	padding-right: 40px;
-	padding-left: 40px;
 }
 
 @media (prefers-reduced-motion) {
