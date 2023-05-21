@@ -2,11 +2,22 @@ import Head from "next/head";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import Image from "next/image";
-import { Box, Button, Center, Heading, Text, Stack, Flex, Grid, GridItem } from "@chakra-ui/react";
+import {
+	Box,
+	Button,
+	Center,
+	Heading,
+	Text,
+	Stack,
+	Flex,
+	Grid,
+	GridItem,
+} from "@chakra-ui/react";
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
 import TripCard from "@/components/TripCard";
 import TicketCard from "@/components/TicketCard";
 import Logo from "/public/images/cmd-f.png";
+import Raccoon from "../public/images/home-raccoon.png";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -32,25 +43,47 @@ export default function Home() {
 				</Flex>
 			</Flex>
 
-			<div style={{ backgroundImage: `url("./images/cmd-f.png")` }} >
-					this should be showing an image 
-			</div>
-
-			<Center backgroundColor="blue.50" backgroundSize="cover" backgroundPosition="center" height="95vh">
-				<Flex direction ="row" width="1080px" justifyContent="space-between">
+			<Center
+				// backgroundColor="blue.50"
+				backgroundImage="url('/images/Background.png')"
+				backgroundSize="cover"
+				backgroundPosition="center"
+				height="95vh"
+			>
+				<Flex
+					direction="row"
+					width="1080px"
+					justifyContent="space-between"
+				>
 					<Box paddingTop="100px">
-						<Text fontSize="3xl" lineHeight="9" fontWeight="bold" color="blue.900"> Hello, Alex!</Text>
-						<Text fontSize="5xl" lineHeight="1"fontWeight="extrabold" color="blue.900"> Your next adventure awaits!</Text>
+						<Text
+							fontSize="3xl"
+							lineHeight="9"
+							fontWeight="bold"
+							color="blue.900"
+						>
+							{" "}
+							Hello, Alex!
+						</Text>
+						<Text
+							fontSize="5xl"
+							lineHeight="1"
+							fontWeight="extrabold"
+							color="blue.900"
+						>
+							{" "}
+							Your next adventure awaits!
+						</Text>
 						<Button colorScheme="blue">Plan a new trip</Button>
+						<Image src={Raccoon} alt="raccoon mascot" />
 					</Box>
+
 					<TicketCard></TicketCard>
 				</Flex>
-				
-	  		</Center>
+			</Center>
 
 			<main className={`${styles.main} ${inter.className}`}>
 				<div className={styles.grid}>
-					
 					<Flex direction="column" minWidth="max-content">
 						<Tabs
 							className={styles.tabs}
