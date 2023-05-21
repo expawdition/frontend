@@ -1,7 +1,7 @@
 import styles from "@/styles/Home.module.css";
 import Image from "next/image";
 import { Heading, Text, Stack, Flex, Button, Box } from "@chakra-ui/react";
-import Logo from "../images/cmd-f.png";
+import Logo from "/public/images/cmd-f.png";
 import { theme } from "../pages/_app";
 
 function Activity(props: any) {
