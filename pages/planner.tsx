@@ -2,6 +2,7 @@ import styles from "@/styles/Home.module.css";
 import { Heading, Text, Flex } from "@chakra-ui/react";
 import { Inter } from "next/font/google";
 import { stringify } from "querystring";
+import { useState } from "react";
 import StepOne from "@/components/StepOne";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -69,6 +70,31 @@ function CirleOff(props: any) {
 }
 
 export default function Planner() {
+	const [form, setForm] = useState({
+		date: "",
+		startTime: "",
+		endTime: "",
+		numberOfPeople: 1,
+		groupType: "",
+		budget: "",
+		transportationMethod: "",
+		location: "",
+		mustDo: "",
+		wheelChairFriendly: false,
+	});
+
+	const handleFormChange = (updatedForm: any) => {
+		setForm(updatedForm);
+	};
+
+	// const handleInputChange = (fieldName: string, value: any) => {
+	// 	console.log(value);
+	// 	setForm((prevForm: any) => ({
+	// 		...prevForm,
+	// 		[fieldName]: value,
+	// 	}));
+	// };
+	console.log(form);
 	return (
 		<>
 			<main className={`${styles.main} ${inter.className}`}>
@@ -99,7 +125,7 @@ export default function Planner() {
 						<WizardTextOff text="Review" />
 					</Flex>
 				</Flex>
-				<StepOne></StepOne>
+				<StepOne form={form} onFormChange={handleFormChange}></StepOne>
 			</main>
 		</>
 	);

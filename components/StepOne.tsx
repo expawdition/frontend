@@ -12,28 +12,35 @@ import {
 import { useState } from "react";
 import StepCardLabel from "./StepCardLabel";
 
-export default function StepOne() {
-	const [form, setForm] = useState({
-		date: "",
-		start: "",
-		end: "",
-		transportation: "",
-		location: "",
-		people: 1,
-		type: "",
-		budget: "",
-		accessibility: [],
-		dietary: [],
-		activity: "",
-	});
-	const handleInputChange = (fieldName: string, value: any) => {
-		console.log(value);
-		setForm((prevForm: any) => ({
-			...prevForm,
-			[fieldName]: value,
-		}));
+interface StepOneProps {
+	form: {
+		date: string;
+		startTime: string;
+		endTime: string;
+		transportationMethod: string;
+		location: string;
 	};
-	console.log(form);
+	onFormChange: (updatedForm: {
+		date: string;
+		startTime: string;
+		endTime: string;
+		transportationMethod: string;
+		location: string;
+	}) => void;
+}
+
+const StepOne: React.FC<StepOneProps> = ({ form, onFormChange }) => {
+	const handleInputChange = (
+		fieldName: keyof typeof form,
+		value: string
+	): void => {
+		const updatedForm = {
+			...form,
+			[fieldName]: value,
+		};
+		onFormChange(updatedForm);
+	};
+
 	return (
 		<>
 			<Flex className={styles.steponecard} direction="row">
@@ -73,9 +80,12 @@ export default function StepOne() {
 								size="sm"
 								width="141px"
 								type="time"
-								value={form.start}
+								value={form.startTime}
 								onChange={(e) =>
-									handleInputChange("start", e.target.value)
+									handleInputChange(
+										"startTime",
+										e.target.value
+									)
 								}
 							/>
 						</Flex>
@@ -86,9 +96,9 @@ export default function StepOne() {
 								size="sm"
 								width="141px"
 								type="time"
-								value={form.end}
+								value={form.endTime}
 								onChange={(e) =>
-									handleInputChange("end", e.target.value)
+									handleInputChange("endTime", e.target.value)
 								}
 							/>
 						</Flex>
@@ -98,9 +108,12 @@ export default function StepOne() {
 						placeholder="Select a mode of transportation"
 						marginBottom="24px"
 						size="sm"
-						value={form.transportation}
+						value={form.transportationMethod}
 						onChange={(e) =>
-							handleInputChange("transportation", e.target.value)
+							handleInputChange(
+								"transportationMethod",
+								e.target.value
+							)
 						}
 					>
 						<option value="car">Car</option>
@@ -129,4 +142,6 @@ export default function StepOne() {
 			</Flex>
 		</>
 	);
-}
+};
+
+export default StepOne;
