@@ -52,16 +52,14 @@
 .shareitenarybutton {
 	border-color: #1a365d;
 	border-width: 1px;
-	background-color: #ffffff;
 	color: #1a365d;
 	border-radius: 6px;
 	margin-right: 12px;
 }
 
 .seedetailsbutton {
-	background-color: #1a365d;
 	border-radius: 6px;
-	color: white;
+	/* color: white; */
 }
 
 /* MAIN BODY */
@@ -295,4 +293,40 @@
 	to {
 		transform: rotate(0deg);
 	}
+}
+
+/* PLANNER PAGE */
+.wizard {
+	/* background-color: #8796a4; */
+	display: flex;
+	align-items: center;
+}
+.wizardtext {
+	margin-right: 8px;
+	vertical-align: middle;
+}
+
+.circleon {
+	width: 32px;
+	height: 32px;
+	background-color: #3182ce;
+	color: white;
+	border-radius: 100px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-right: 8px;
+}
+
+.circleoff {
+	width: 32px;
+	height: 32px;
+	border-color: black;
+	border-width: 1px;
+	color: black;
+	border-radius: 100px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-right: 8px;
 }

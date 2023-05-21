@@ -43,10 +43,18 @@ export default function TripCard() {
 						</Text>
 					</Flex>
 					<Flex float="right">
-						<Button className={styles.shareitenarybutton}>
+						<Button
+							className={styles.shareitenarybutton}
+							colorScheme="#ffffff"
+							color="#1a365d"
+						>
 							Share Itinerary
 						</Button>
-						<Button className={styles.seedetailsbutton}>
+						<Button
+							className={styles.seedetailsbutton}
+							// colorScheme="#1a365d"
+							color="#ffffff"
+						>
 							See Details
 						</Button>
 					</Flex>
