@@ -9,10 +9,31 @@ import {
 	InputGroup,
 	InputLeftElement,
 } from "@chakra-ui/react";
-import { SearchIcon } from "@chakra-ui/icons";
+import { useState } from "react";
 import StepCardLabel from "./StepCardLabel";
 
 export default function StepOne() {
+	const [form, setForm] = useState({
+		date: "",
+		start: "",
+		end: "",
+		transportation: "",
+		location: "",
+		people: 1,
+		type: "",
+		budget: "",
+		accessibility: [],
+		dietary: [],
+		activity: "",
+	});
+	const handleInputChange = (fieldName: string, value: any) => {
+		console.log(value);
+		setForm((prevForm: any) => ({
+			...prevForm,
+			[fieldName]: value,
+		}));
+	};
+	console.log(form);
 	return (
 		<>
 			<Flex className={styles.steponecard} direction="row">
@@ -35,6 +56,10 @@ export default function StepOne() {
 						size="sm"
 						type="date"
 						marginBottom="24px"
+						value={form.date}
+						onChange={(e) =>
+							handleInputChange("date", e.target.value)
+						}
 					/>
 					<Flex
 						className={styles.steponetimediv}
@@ -48,6 +73,10 @@ export default function StepOne() {
 								size="sm"
 								width="141px"
 								type="time"
+								value={form.start}
+								onChange={(e) =>
+									handleInputChange("start", e.target.value)
+								}
 							/>
 						</Flex>
 						<Flex direction="column">
@@ -57,6 +86,10 @@ export default function StepOne() {
 								size="sm"
 								width="141px"
 								type="time"
+								value={form.end}
+								onChange={(e) =>
+									handleInputChange("end", e.target.value)
+								}
 							/>
 						</Flex>
 					</Flex>
@@ -65,6 +98,10 @@ export default function StepOne() {
 						placeholder="Select a mode of transportation"
 						marginBottom="24px"
 						size="sm"
+						value={form.transportation}
+						onChange={(e) =>
+							handleInputChange("transportation", e.target.value)
+						}
 					>
 						<option value="car">Car</option>
 						<option value="transit">Transit</option>
@@ -72,15 +109,15 @@ export default function StepOne() {
 						<option value="bike">Bike</option>
 					</Select>
 					<StepCardLabel text="Where do you want to explore?" />
-					<InputGroup marginBottom="24px">
-						<InputLeftElement pointerEvents="none">
-							<SearchIcon color="gray.300" />
-						</InputLeftElement>
-						<Input
-							size="sm"
-							placeholder="Search for a neighbourhood or city"
-						/>
-					</InputGroup>
+					<Input
+						size="sm"
+						placeholder="Enter a destination"
+						value={form.location}
+						onChange={(e) =>
+							handleInputChange("location", e.target.value)
+						}
+						marginBottom="24px"
+					/>
 					<Flex direction="row">
 						<Button className={styles.stepnextbutton}>Next</Button>
 						<Button>Cancel</Button>
