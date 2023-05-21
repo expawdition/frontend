@@ -1,5 +1,6 @@
 import styles from "@/styles/Home.module.css";
 import { Heading, Text, Flex } from "@chakra-ui/react";
+import Image from "next/image";
 import { Inter } from "next/font/google";
 import { useState } from "react";
 import StepOne from "@/components/StepOne";
@@ -7,6 +8,7 @@ import StepTwo from "@/components/StepTwo";
 import StepThree from "@/components/StepThree";
 import StepFour from "@/components/StepFour";
 import StepFive from "@/components/StepFive";
+import Raccoon from "../public/images/planning-raccoon.png";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -42,7 +44,7 @@ function WizardTextOff(props: any) {
 	);
 }
 
-function CirleOn(props: any) {
+function CircleOn(props: any) {
 	return (
 		<div className={styles.circleon}>
 			<Text
@@ -57,7 +59,7 @@ function CirleOn(props: any) {
 	);
 }
 
-function CirleOff(props: any) {
+function CircleOff(props: any) {
 	return (
 		<div className={styles.circleoff}>
 			<Text
@@ -101,6 +103,7 @@ export default function Planner() {
 	};
 
 	let stepComponent;
+	let wizardComponent;
 	switch (stepState) {
 		case 1:
 			stepComponent = (
@@ -109,6 +112,24 @@ export default function Planner() {
 					onFormChange={handleFormChange}
 					onNextStep={handleNextStep}
 				/>
+			);
+			wizardComponent = (
+				<Flex direction="row" className={styles.wizard}>
+					<CircleOn num="1"></CircleOn>
+					<WizardTextOn text="When and Where" />
+					<WizardLine></WizardLine>
+					<CircleOff num="2"></CircleOff>
+					<WizardTextOff text="Who's Going" />
+					<WizardLine></WizardLine>
+					<CircleOff num="3"></CircleOff>
+					<WizardTextOff text="Preferences" />
+					<WizardLine></WizardLine>
+					<CircleOff num="4"></CircleOff>
+					<WizardTextOff text="Must-Do Activity" />
+					<WizardLine></WizardLine>
+					<CircleOff num="5"></CircleOff>
+					<WizardTextOff text="Review" />
+				</Flex>
 			);
 			break;
 		case 2:
@@ -120,6 +141,24 @@ export default function Planner() {
 					onPreviousStep={handlePreviousStep}
 				/>
 			);
+			wizardComponent = (
+				<Flex direction="row" className={styles.wizard}>
+					<CircleOn num="1"></CircleOn>
+					<WizardTextOn text="When and Where" />
+					<WizardLine></WizardLine>
+					<CircleOn num="2"></CircleOn>
+					<WizardTextOn text="Who's Going" />
+					<WizardLine></WizardLine>
+					<CircleOff num="3"></CircleOff>
+					<WizardTextOff text="Preferences" />
+					<WizardLine></WizardLine>
+					<CircleOff num="4"></CircleOff>
+					<WizardTextOff text="Must-Do Activity" />
+					<WizardLine></WizardLine>
+					<CircleOff num="5"></CircleOff>
+					<WizardTextOff text="Review" />
+				</Flex>
+			);
 			break;
 		case 3:
 			stepComponent = (
@@ -129,6 +168,24 @@ export default function Planner() {
 					onNextStep={handleNextStep}
 					onPreviousStep={handlePreviousStep}
 				/>
+			);
+			wizardComponent = (
+				<Flex direction="row" className={styles.wizard}>
+					<CircleOn num="1"></CircleOn>
+					<WizardTextOn text="When and Where" />
+					<WizardLine></WizardLine>
+					<CircleOn num="2"></CircleOn>
+					<WizardTextOn text="Who's Going" />
+					<WizardLine></WizardLine>
+					<CircleOn num="3"></CircleOn>
+					<WizardTextOn text="Preferences" />
+					<WizardLine></WizardLine>
+					<CircleOff num="4"></CircleOff>
+					<WizardTextOff text="Must-Do Activity" />
+					<WizardLine></WizardLine>
+					<CircleOff num="5"></CircleOff>
+					<WizardTextOff text="Review" />
+				</Flex>
 			);
 			break;
 		case 4:
@@ -140,6 +197,24 @@ export default function Planner() {
 					onPreviousStep={handlePreviousStep}
 				/>
 			);
+			wizardComponent = (
+				<Flex direction="row" className={styles.wizard}>
+					<CircleOn num="1"></CircleOn>
+					<WizardTextOn text="When and Where" />
+					<WizardLine></WizardLine>
+					<CircleOn num="2"></CircleOn>
+					<WizardTextOn text="Who's Going" />
+					<WizardLine></WizardLine>
+					<CircleOn num="3"></CircleOn>
+					<WizardTextOn text="Preferences" />
+					<WizardLine></WizardLine>
+					<CircleOn num="4"></CircleOn>
+					<WizardTextOn text="Must-Do Activity" />
+					<WizardLine></WizardLine>
+					<CircleOff num="5"></CircleOff>
+					<WizardTextOff text="Review" />
+				</Flex>
+			);
 			break;
 		case 5:
 			stepComponent = (
@@ -149,6 +224,24 @@ export default function Planner() {
 					onPreviousStep={handlePreviousStep}
 					// TODO: add onSubmit
 				/>
+			);
+			wizardComponent = (
+				<Flex direction="row" className={styles.wizard}>
+					<CircleOn num="1"></CircleOn>
+					<WizardTextOn text="When and Where" />
+					<WizardLine></WizardLine>
+					<CircleOn num="2"></CircleOn>
+					<WizardTextOn text="Who's Going" />
+					<WizardLine></WizardLine>
+					<CircleOn num="3"></CircleOn>
+					<WizardTextOn text="Preferences" />
+					<WizardLine></WizardLine>
+					<CircleOn num="4"></CircleOn>
+					<WizardTextOn text="Must-Do Activity" />
+					<WizardLine></WizardLine>
+					<CircleOn num="5"></CircleOn>
+					<WizardTextOn text="Review" />
+				</Flex>
 			);
 			break;
 		default:
@@ -169,24 +262,16 @@ export default function Planner() {
 					>
 						Plan your trip
 					</Text>
-					<Flex direction="row" className={styles.wizard}>
-						<CirleOn num="1"></CirleOn>
-						<WizardTextOn text="When and Where" />
-						<WizardLine></WizardLine>
-						<CirleOff num="2"></CirleOff>
-						<WizardTextOff text="Who's Going" />
-						<WizardLine></WizardLine>
-						<CirleOff num="3"></CirleOff>
-						<WizardTextOff text="Preferences" />
-						<WizardLine></WizardLine>
-						<CirleOff num="4"></CirleOff>
-						<WizardTextOff text="Must-Do Activity" />
-						<WizardLine></WizardLine>
-						<CirleOff num="5"></CirleOff>
-						<WizardTextOff text="Review" />
-					</Flex>
+					{wizardComponent}
 				</Flex>
 				{stepComponent}
+				{/* <div className={styles.imageContainer}> */}
+				<Image
+					className={styles.planningraccoon}
+					src={Raccoon}
+					alt="raccoon mascot"
+				/>
+				{/* </div> */}
 			</main>
 		</>
 	);

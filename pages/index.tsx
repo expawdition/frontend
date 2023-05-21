@@ -22,6 +22,10 @@ import Raccoon from "../public/images/home-raccoon.png";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+	const handleClickNew = () => {
+		window.location.href = "http://localhost:3000/planner";
+	};
+
 	return (
 		<>
 			<Head>
@@ -61,6 +65,7 @@ export default function Home() {
 							lineHeight="9"
 							fontWeight="bold"
 							color="blue.900"
+							marginBottom="16px"
 						>
 							{" "}
 							Hello, Alex!
@@ -70,11 +75,14 @@ export default function Home() {
 							lineHeight="1"
 							fontWeight="extrabold"
 							color="blue.900"
+							marginBottom="16px"
 						>
 							{" "}
 							Your next adventure awaits!
 						</Text>
-						<Button colorScheme="blue">Plan a new trip</Button>
+						<Button colorScheme="blue" onClick={handleClickNew}>
+							Plan a new trip
+						</Button>
 						<Image src={Raccoon} alt="raccoon mascot" />
 					</Box>
 

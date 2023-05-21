@@ -51,7 +51,7 @@ const StepOne: React.FC<StepOneProps> = ({
 	};
 
 	const handleClickCancel = () => {
-		window.location.href = "http://localhost:3000/"; // Replace with your desired URL
+		window.location.href = "http://localhost:3000/";
 	};
 
 	return (

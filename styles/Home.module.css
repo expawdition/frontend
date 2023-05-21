@@ -30,7 +30,7 @@
 
 /* TRIP CARD */
 .ticketcard {
-	width: 500px;
+	width: 550px;
 	height: 660px;
 }
 
@@ -76,7 +76,7 @@
 	align-items: center;
 	padding: 6rem;
 	min-height: 100vh;
-	background: #fbfbfb;
+	background: #f0faff;
 }
 
 .description {
@@ -361,4 +361,11 @@
 	border-width: 1px;
 	color: #3182ce;
 	color-scheme: #3182ce;
+}
+
+.planningraccoon {
+	position: fixed;
+	right: 40px;
+	bottom: 0px;
+	width: 370px;
 }
