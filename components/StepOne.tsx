@@ -50,6 +50,10 @@ const StepOne: React.FC<StepOneProps> = ({
 		onNextStep();
 	};
 
+	const handleClickCancel = () => {
+		window.location.href = "http://localhost:3000/"; // Replace with your desired URL
+	};
+
 	return (
 		<>
 			<Flex className={styles.steponecard} direction="row">
@@ -64,7 +68,7 @@ const StepOne: React.FC<StepOneProps> = ({
 						lineHeight="7"
 						fontWeight="bold"
 					>
-						1. When and Where
+						{"1. When and Where"}
 					</Text>
 					<StepCardLabel text="When are you planning to have your outing?" />
 					<Input
@@ -147,7 +151,7 @@ const StepOne: React.FC<StepOneProps> = ({
 						>
 							Next
 						</Button>
-						<Button>Cancel</Button>
+						<Button onClick={handleClickCancel}>Cancel</Button>
 					</Flex>
 				</Flex>
 				<AspectRatio ratio={16 / 9} flex="1 1 auto">

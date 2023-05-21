@@ -146,8 +146,8 @@ export default function Planner() {
 				<StepFive
 					form={form}
 					onFormChange={handleFormChange}
-					// onNextStep={handleNextStep}
 					onPreviousStep={handlePreviousStep}
+					// TODO: add onSubmit
 				/>
 			);
 			break;

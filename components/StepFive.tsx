@@ -84,14 +84,12 @@ interface StepFiveProps {
 		wheelChairFriendly: boolean;
 		mustDo: string;
 	}) => void;
-	onNextStep: () => void;
 	onPreviousStep: () => void;
 }
 
 const StepFive: React.FC<StepFiveProps> = ({
 	form,
 	onFormChange,
-	onNextStep,
 	onPreviousStep,
 }) => {
 	const handleInputChange = (
@@ -103,9 +101,6 @@ const StepFive: React.FC<StepFiveProps> = ({
 			[fieldName]: value,
 		};
 		onFormChange(updatedForm);
-	};
-	const handleNext = () => {
-		onNextStep();
 	};
 
 	const handleBack = () => {

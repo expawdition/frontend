@@ -340,6 +340,7 @@
 
 .steponecard {
 	width: 1080px;
+	/* vertical-align: top; */
 	height: 504px;
 	background-color: white;
 	border-radius: 16px;
