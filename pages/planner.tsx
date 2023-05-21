@@ -1,12 +1,12 @@
 import styles from "@/styles/Home.module.css";
 import { Heading, Text, Flex } from "@chakra-ui/react";
 import { Inter } from "next/font/google";
-import { stringify } from "querystring";
 import { useState } from "react";
 import StepOne from "@/components/StepOne";
 import StepTwo from "@/components/StepTwo";
 import StepThree from "@/components/StepThree";
 import StepFour from "@/components/StepFour";
+import StepFive from "@/components/StepFive";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -137,6 +137,16 @@ export default function Planner() {
 					form={form}
 					onFormChange={handleFormChange}
 					onNextStep={handleNextStep}
+					onPreviousStep={handlePreviousStep}
+				/>
+			);
+			break;
+		case 5:
+			stepComponent = (
+				<StepFive
+					form={form}
+					onFormChange={handleFormChange}
+					// onNextStep={handleNextStep}
 					onPreviousStep={handlePreviousStep}
 				/>
 			);
