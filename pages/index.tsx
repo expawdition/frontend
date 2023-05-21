@@ -6,7 +6,7 @@ import { Box, Button, Center, Heading, Text, Stack, Flex, Grid, GridItem } from 
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
 import TripCard from "@/components/TripCard";
 import TicketCard from "@/components/TicketCard";
-import Logo from "../images/cmd-f.png";
+import Logo from "/public/images/cmd-f.png";
 
 const inter = Inter({ subsets: ["latin"] });
 

@@ -7,7 +7,7 @@ import { LinkIcon } from "@chakra-ui/icons";
 export default function TicketCard() {
     return (
         <>
-        <Flex className={styles.ticketcard} direction="column" backgroundImage="url('images/Ticket.svg')" paddingTop={"32px"} px={"32px"}> 
+        <Flex className={styles.ticketcard} direction="column" backgroundImage="url('/images/Ticket.svg')" paddingTop={"32px"} px={"32px"}> 
             <Text fontSize="md" lineHeight="6" fontWeight="normal">
                     Coming up next
                 </Text>
