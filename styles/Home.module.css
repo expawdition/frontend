@@ -19,7 +19,7 @@
 /* TRIP CARD */
 .tripcard {
 	width: 1080px;
-	height: 348px;
+	/* height: 348px; */
 	background: white;
 	border-radius: 16px;
 	padding-top: 20px;
