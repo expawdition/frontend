@@ -64,13 +64,34 @@ export default function Itinerary({
                 <Box>
                     <Text>Back</Text>
                 </Box>
-                <Box>
+                <Box display="flex" flexDirection="column">
                     <Text>Your itinerary for</Text>
                     <Box display="flex" justifyContent="space-between">
-                        <Text>date</Text>
+                        <Text>{itinerary.date}</Text>
                         <Button>Share Itinerary</Button>
                     </Box>
                 </Box>
+                {/* {itinerary.map((activity: any) => (
+                    <Box>
+                        <Text>{activity.estimatedStartTime}</Text>
+                        <Box>
+                            <Box>
+                                <Image
+                                    src={activity.photo}
+                                    alt="photo of activity"
+                                />
+                            </Box>
+                            <Box>
+                                <Text>{activity.name}</Text>
+                                <Text>{activity.description}</Text>
+                                <Box>
+                                    <Button>Learn more</Button>
+                                    <Button>Suggest a new activity</Button>
+                                </Box>
+                            </Box>
+                        </Box>
+                    </Box>
+                ))} */}
             </Box>
         </>
     );
