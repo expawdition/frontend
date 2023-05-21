@@ -16,7 +16,11 @@ export default function StepOne() {
 	return (
 		<>
 			<Flex className={styles.steponecard} direction="row">
-				<Flex className={styles.steponecardfields} direction="column">
+				<Flex
+					className={styles.steponecardfields}
+					direction="column"
+					marginRight="56px"
+				>
 					<Text
 						className={styles.stepcardtitle}
 						fontSize="xl"
