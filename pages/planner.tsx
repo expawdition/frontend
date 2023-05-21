@@ -123,14 +123,14 @@ export default function Planner() {
 				</Flex>
 				<StepOne form={form} onFormChange={handleFormChange}></StepOne>
 				<StepTwo form={form} onFormChange={handleFormChange}></StepTwo>
-				{/* <StepThree
+				<StepThree
 					form={form}
 					onFormChange={handleFormChange}
 				></StepThree>
 				<StepFour
 					form={form}
 					onFormChange={handleFormChange}
-				></StepFour> */}
+				></StepFour>
 			</main>
 		</>
 	);
