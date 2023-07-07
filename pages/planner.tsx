@@ -128,7 +128,7 @@ export default function Planner() {
 			console.log("hello");
 
 			const response = await fetch(
-				"http://localhost:3001/trips/create-trip",
+				"https://expawdition-api.onrender.com/trips/create-trip",
 				{
 					method: "POST",
 					body: JSON.stringify(data),

@@ -179,9 +179,9 @@ export async function getServerSideProps() {
     // const userId = "AzX1vIPNZ3k21wXtfRQD";
 
     try {
-        const response = await fetch(`http://localhost:3001/trips/all`);
+        const response = await fetch(`https://expawdition-api.onrender.com/trips/all`);
         const data = await response.json();
-
+        console.log(data);
         return {
             props: {
                 dbTrips: data,
