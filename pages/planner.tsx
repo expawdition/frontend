@@ -128,7 +128,7 @@ export default function Planner() {
 			console.log("hello");
 
 			const response = await fetch(
-				"https://expawdition-api.onrender.com/trips/create-trip",
+				"https://expawdition-api.up.railway.app/trips/create-trip",
 				{
 					method: "POST",
 					body: JSON.stringify(data),

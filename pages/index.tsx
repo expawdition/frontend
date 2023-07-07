@@ -179,7 +179,7 @@ export async function getServerSideProps() {
     // const userId = "AzX1vIPNZ3k21wXtfRQD";
 
     try {
-        const response = await fetch(`https://expawdition-api.onrender.com/trips/all`);
+        const response = await fetch(`https://expawdition-api.up.railway.app/trips/all`);
         const data = await response.json();
         console.log(data);
         return {

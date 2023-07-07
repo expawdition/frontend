@@ -163,7 +163,7 @@ export async function getServerSideProps(context: any) {
 
     try {
         const response = await fetch(
-            `https://expawdition-api.onrender.com/trips/${itinerary}`
+            `https://expawdition-api.up.railway.app/trips/${itinerary}`
         );
         const data = await response.json();
 
