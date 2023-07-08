@@ -47,6 +47,12 @@ export default function Home({ dbTrips, error }: { dbTrips: any; error: any }) {
         setLoading(false);
     }, [loading]);
 
+    useEffect(() => {
+        fetch('https://expawdition-api.onrender.com')
+          .then(() => console.log('Server is awake'))
+          .catch(err => console.log(`Failed to wake server: ${err}`));
+      }, []);
+
     const handleClickNew = () => {
         window.location.href = "http://localhost:3000/planner";
     };
