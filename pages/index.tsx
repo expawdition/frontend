@@ -54,7 +54,7 @@ export default function Home({ dbTrips, error }: { dbTrips: any; error: any }) {
       }, []);
 
     const handleClickNew = () => {
-        window.location.href = "http://localhost:3000/planner";
+        window.location.href = "https://expawdition-api.onrender.com/planner";
     };
 
     return (

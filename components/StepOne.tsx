@@ -51,7 +51,7 @@ const StepOne: React.FC<StepOneProps> = ({
 	};
 
 	const handleClickCancel = () => {
-		window.location.href = "http://localhost:3000/";
+		window.location.href = "https://expawdition-api.onrender.com/";
 	};
 
 	return (
