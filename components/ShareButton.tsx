@@ -23,7 +23,6 @@ export default function ShareButton({url} : {url: string}) {
             <Button
                 variant='outline'
                 leftIcon={<LinkIcon />}
-                marginTop='5px'
                 marginBottom='10px'
                 width='200px'
                 onClick={handleShareClick}
@@ -49,7 +48,7 @@ export default function ShareButton({url} : {url: string}) {
                     >
                         URL copied to clipboard!
                     </MotionBox>
-                )}
+                 )}
             </AnimatePresence>
         </>
     );

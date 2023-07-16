@@ -66,7 +66,9 @@ export default function TicketCard({
 					>
 						See Details
 					</Button>
-					<ShareButton url={`https://expawdition.vercel.app/itineraries/${id}`} />
+					<Box>
+						<ShareButton url={`https://expawdition.vercel.app/itineraries/${id}`} />
+					</Box>
 				</Stack>
 			</Flex>
 		</>

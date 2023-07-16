@@ -61,7 +61,7 @@ export default function TripCard({
 					</Flex>
 					<Flex float='right'>
 						<Button
-							className={styles.shareitenarybutton}
+							className={styles.shareitinerarybutton}
 							colorScheme='#ffffff'
 							color='#1a365d'
 							onClick={handleShareClick}
@@ -79,7 +79,7 @@ export default function TripCard({
 								bottom='0'
 								right='0'
 								m='16px'
-								p='24px'
+								p='16px'
 								fontSize='lg'
 								bg='green.500'
 								color='white'

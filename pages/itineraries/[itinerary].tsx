@@ -57,27 +57,6 @@ export default function Itinerary({ dbItinerary, error }: { dbItinerary: any; er
 	console.log(itineraryId);
 	return (
 		<>
-			{/* <AnimatePresence>
-				{isCopied && (
-					<MotionBox
-						initial={{ opacity: 0, y: 50 }}
-						animate={{ opacity: 1, y: 0 }}
-						exit={{ opacity: 0, y: 50 }}
-						transition={{ duration: 0.5 }}
-						position='fixed'
-						bottom='0'
-						right='0'
-						m='16px'
-						p='24px'
-						fontSize='lg'
-						bg='green.500'
-						color='white'
-						borderRadius='md'
-					>
-						URL copied to clipboard!
-					</MotionBox>
-				)}
-			</AnimatePresence> */}
 			<Flex direction='column' backgroundImage="url('/images/Background.png')" backgroundSize='cover'>
 				<Flex className={styles.header} justifyContent='space-between'>
 					<Flex className={styles.headerleft}>
@@ -101,7 +80,7 @@ export default function Itinerary({ dbItinerary, error }: { dbItinerary: any; er
 							<Text fontSize='md' lineHeight='6' fontWeight='normal'>
 								Your itinerary for
 							</Text>
-							<Text fontSize='4xl' lineHeight='10' fontWeight='bold'>
+							<Text fontSize='4xl' lineHeight='10' fontWeight='bold' marginBottom="15px">
 								{itinerary.date}
 							</Text>
 							<ShareButton url={`https://expawdition.vercel.app/itineraries/${itineraryId}`} />
