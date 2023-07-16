@@ -1,14 +1,14 @@
-import "@/styles/globals.css";
-import type { AppProps } from "next/app";
-import { ChakraProvider, extendTheme } from "@chakra-ui/react";
+import '@/styles/globals.css';
+import type { AppProps } from 'next/app';
+import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 
 export const theme = extendTheme({
 	colors: {
 		seeDetailsButtonColor: {
-			500: "#1A365D",
+			500: '#1A365D',
 		},
 		nextButtonColor: {
-			500: "#3182CE",
+			500: '#3182CE',
 		},
 	},
 });

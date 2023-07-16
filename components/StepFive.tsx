@@ -1,24 +1,10 @@
-import styles from "@/styles/Home.module.css";
-import {
-	Text,
-	Select,
-	Flex,
-	Button,
-	AspectRatio,
-	Input,
-	InputGroup,
-	InputLeftElement,
-} from "@chakra-ui/react";
+import styles from '@/styles/Home.module.css';
+import { Text, Select, Flex, Button, AspectRatio, Input, InputGroup, InputLeftElement } from '@chakra-ui/react';
 
 function CardFiveSubtitle(props: any) {
 	return (
 		<>
-			<Text
-				className={styles.stepfivecardsubtitle}
-				fontSize="md"
-				lineHeight="6"
-				fontWeight="bold"
-			>
+			<Text className={styles.stepfivecardsubtitle} fontSize='md' lineHeight='6' fontWeight='bold'>
 				{props.text}
 			</Text>
 		</>
@@ -30,12 +16,12 @@ function FieldText(props: any) {
 		<>
 			<Text
 				className={styles.stepfivecardsubtitle}
-				fontSize="sm"
-				lineHeight="5"
-				fontWeight="medium"
-				textAlign="right"
-				marginRight="16px"
-				marginBottom="4px"
+				fontSize='sm'
+				lineHeight='5'
+				fontWeight='medium'
+				textAlign='right'
+				marginRight='16px'
+				marginBottom='4px'
 			>
 				{props.text}
 			</Text>
@@ -46,13 +32,7 @@ function FieldText(props: any) {
 function ValueText(props: any) {
 	return (
 		<>
-			<Text
-				className={styles.stepfivecardsubtitle}
-				fontSize="sm"
-				lineHeight="5"
-				fontWeight="medium"
-				marginBottom="4px"
-			>
+			<Text className={styles.stepfivecardsubtitle} fontSize='sm' lineHeight='5' fontWeight='medium' marginBottom='4px'>
 				{props.text}
 			</Text>
 		</>
@@ -88,16 +68,8 @@ interface StepFiveProps {
 	onClick: (e: any) => Promise<void>;
 }
 
-const StepFive: React.FC<StepFiveProps> = ({
-	form,
-	onFormChange,
-	onPreviousStep,
-	onClick,
-}) => {
-	const handleInputChange = (
-		fieldName: keyof typeof form,
-		value: string
-	): void => {
+const StepFive: React.FC<StepFiveProps> = ({ form, onFormChange, onPreviousStep, onClick }) => {
+	const handleInputChange = (fieldName: keyof typeof form, value: string): void => {
 		const updatedForm = {
 			...form,
 			[fieldName]: value,
@@ -114,92 +86,69 @@ const StepFive: React.FC<StepFiveProps> = ({
 	};
 	return (
 		<>
-			<Flex className={styles.stepfivecard} direction="row">
-				<Flex className={styles.steponecardfields} direction="column">
-					<Text
-						className={styles.stepcardtitle}
-						fontSize="xl"
-						lineHeight="7"
-						fontWeight="bold"
-					>
-						{"5. Review Your Preferences"}
+			<Flex className={styles.stepfivecard} direction='row'>
+				<Flex className={styles.steponecardfields} direction='column'>
+					<Text className={styles.stepcardtitle} fontSize='xl' lineHeight='7' fontWeight='bold'>
+						{'5. Review Your Preferences'}
 					</Text>
-					<Flex direction="row">
-						<Flex direction="column" width="466px">
-							<CardFiveSubtitle text="When and Where"></CardFiveSubtitle>
-							<Flex direction="row" marginBottom="40px">
-								<Flex direction="column">
-									<FieldText text="Date:"></FieldText>
-									<FieldText text="Time:"></FieldText>
-									<FieldText text="Transportation:"></FieldText>
-									<FieldText text="Destination:"></FieldText>
+					<Flex direction='row'>
+						<Flex direction='column' width='466px'>
+							<CardFiveSubtitle text='When and Where'></CardFiveSubtitle>
+							<Flex direction='row' marginBottom='40px'>
+								<Flex direction='column'>
+									<FieldText text='Date:'></FieldText>
+									<FieldText text='Time:'></FieldText>
+									<FieldText text='Transportation:'></FieldText>
+									<FieldText text='Destination:'></FieldText>
 								</Flex>
-								<Flex direction="column">
+								<Flex direction='column'>
 									<ValueText text={form.date}></ValueText>
-									<ValueText
-										text={`${form.startTime} - ${form.endTime}`}
-									></ValueText>
-									<ValueText
-										text={form.transportationMethod}
-									></ValueText>
+									<ValueText text={`${form.startTime} - ${form.endTime}`}></ValueText>
+									<ValueText text={form.transportationMethod}></ValueText>
 									<ValueText text={form.location}></ValueText>
 								</Flex>
 							</Flex>
-							<CardFiveSubtitle text="Preferences"></CardFiveSubtitle>
-							<Flex direction="row" marginBottom="40px">
-								<Flex direction="column">
-									<FieldText text="Budget:"></FieldText>
-									<FieldText text="Accessibility:"></FieldText>
-									<FieldText text="Dietary:"></FieldText>
+							<CardFiveSubtitle text='Preferences'></CardFiveSubtitle>
+							<Flex direction='row' marginBottom='40px'>
+								<Flex direction='column'>
+									<FieldText text='Budget:'></FieldText>
+									<FieldText text='Accessibility:'></FieldText>
+									<FieldText text='Dietary:'></FieldText>
 								</Flex>
-								<Flex direction="column">
+								<Flex direction='column'>
 									<ValueText text={form.budget}></ValueText>
-									<ValueText
-										text={
-											form.wheelChairFriendly
-												? "Wheelchair-friendly"
-												: ""
-										}
-									/>
-									<ValueText text="None"></ValueText>
+									<ValueText text={form.wheelChairFriendly ? 'Wheelchair-friendly' : ''} />
+									<ValueText text='None'></ValueText>
 								</Flex>
 							</Flex>
 						</Flex>
-						<Flex direction="column">
+						<Flex direction='column'>
 							<CardFiveSubtitle text="Who's Going"></CardFiveSubtitle>
-							<Flex direction="row" marginBottom="40px">
-								<Flex direction="column">
-									<FieldText text="Group Size:"></FieldText>
-									<FieldText text="Group Type:"></FieldText>
+							<Flex direction='row' marginBottom='40px'>
+								<Flex direction='column'>
+									<FieldText text='Group Size:'></FieldText>
+									<FieldText text='Group Type:'></FieldText>
 								</Flex>
-								<Flex direction="column" height="92px">
-									<ValueText
-										text={form.numberOfPeople}
-									></ValueText>
-									<ValueText
-										text={form.groupType}
-									></ValueText>
+								<Flex direction='column' height='92px'>
+									<ValueText text={form.numberOfPeople}></ValueText>
+									<ValueText text={form.groupType}></ValueText>
 								</Flex>
 							</Flex>
-							<CardFiveSubtitle text="Must-Do Activity"></CardFiveSubtitle>
-							<Flex direction="row" marginBottom="40px">
-								<Flex direction="column">
-									<FieldText text="Activity:"></FieldText>
+							<CardFiveSubtitle text='Must-Do Activity'></CardFiveSubtitle>
+							<Flex direction='row' marginBottom='40px'>
+								<Flex direction='column'>
+									<FieldText text='Activity:'></FieldText>
 								</Flex>
-								<Flex direction="column">
+								<Flex direction='column'>
 									<ValueText text={form.mustDo}></ValueText>
 								</Flex>
 							</Flex>
 						</Flex>
 
-						<Flex direction="column"></Flex>
+						<Flex direction='column'></Flex>
 					</Flex>
-					<Flex direction="row">
-						<Button
-							className={styles.stepnextbutton}
-							colorScheme="blue"
-							onClick={handleSubmit}
-						>
+					<Flex direction='row'>
+						<Button className={styles.stepnextbutton} colorScheme='blue' onClick={handleSubmit}>
 							Submit
 						</Button>
 						<Button onClick={onPreviousStep}>Back</Button>
