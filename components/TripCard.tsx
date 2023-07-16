@@ -1,9 +1,13 @@
+import { useState } from 'react';
 import styles from '@/styles/Home.module.css';
 import Image from 'next/image';
 import { Heading, Text, Stack, Flex, Button, Box } from '@chakra-ui/react';
 import { theme } from '../pages/_app';
 import { ItineraryEvent } from '@/pages';
 import { useRouter } from 'next/router';
+import { motion } from 'framer-motion';
+
+const MotionBox = motion(Box);
 
 function Activity(props: any) {
 	return (
@@ -30,7 +34,18 @@ export default function TripCard({
 	itineraryEvents: ItineraryEvent[];
 	id: string;
 }) {
+	const [isCopied, setIsCopied] = useState(false);
 	const router = useRouter();
+
+	const handleShareClick = async () => {
+		try {
+			await navigator.clipboard.writeText(`https://expawdition.vercel.app/itineraries/${id}`);
+			setIsCopied(true);
+			setTimeout(() => setIsCopied(false), 2000);
+		} catch (err) {
+			console.error('Failed to copy: ', err);
+		}
+	};
 
 	return (
 		<>
@@ -45,9 +60,35 @@ export default function TripCard({
 						</Text>
 					</Flex>
 					<Flex float='right'>
-						<Button className={styles.shareitenarybutton} colorScheme='#ffffff' color='#1a365d'>
+						<Button
+							className={styles.shareitenarybutton}
+							colorScheme='#ffffff'
+							color='#1a365d'
+							onClick={handleShareClick}
+						>
 							Share Itinerary
 						</Button>
+
+						{isCopied && (
+							<MotionBox
+								initial={{ opacity: 0, y: 50 }}
+								animate={{ opacity: 1, y: 0 }}
+								exit={{ opacity: 0, y: 50 }}
+								transition={{ duration: 0.5 }}
+								position='fixed'
+								bottom='0'
+								right='0'
+								m='16px'
+								p='24px'
+								fontSize='lg'
+								bg='green.500'
+								color='white'
+								borderRadius='md'
+							>
+								URL copied to clipboard!
+							</MotionBox>
+						)}
+
 						<Button
 							className={styles.seedetailsbutton}
 							colorScheme='seeDetailsButtonColor'
@@ -72,30 +113,6 @@ export default function TripCard({
 							description={activity.description}
 						/>
 					))}
-					{/* <Activity
-						// pictureURL="https://images.unsplash.com/photo-1627328778996-e8582968a0f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
-						place="Vancouver Aquarium"
-						description="Small description of the place in question. These
-					descriptions will be pulled from Google."
-					></Activity>
-					<Activity
-						// pictureURL="https://loremflickr.com/640/360"
-						place="Vancouver Aquarium"
-						description="Small description of the place in question. These
-					descriptions will be pulled from Google."
-					></Activity>
-					<Activity
-						// pictureURL="https://loremflickr.com/640/360"
-						place="Vancouver Aquarium"
-						description="Small description of the place in question. These
-					descriptions will be pulled from Google."
-					></Activity>
-					<Activity
-						// pictureURL="https://loremflickr.com/640/360"
-						place="Vancouver Aquarium"
-						description="Small description of the place in question. These
-					descriptions will be pulled from Google."
-					></Activity> */}
 				</Flex>
 			</Flex>
 		</>

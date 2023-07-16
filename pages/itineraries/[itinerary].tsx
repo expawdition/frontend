@@ -10,6 +10,8 @@ import Logo from '/public/images/logo.png';
 import Nugget from '/public/images/nugget.png';
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
+import ShareButton from '@/components/ShareButton';
+// import { motion, AnimatePresence } from 'framer-motion';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -38,8 +40,10 @@ function EventCard(props: any) {
 }
 
 export default function Itinerary({ dbItinerary, error }: { dbItinerary: any; error: any }) {
+	// const MotionBox = motion(Box);
 	const [itinerary] = useState(dbItinerary);
 	const [loading, setLoading] = useState(true);
+	const [isCopied, setIsCopied] = useState(false);
 
 	const router = useRouter();
 	const itineraryId = router.query.itinerary;
@@ -50,8 +54,30 @@ export default function Itinerary({ dbItinerary, error }: { dbItinerary: any; er
 		setLoading(false);
 	}, [itinerary, loading]);
 
+	console.log(itineraryId);
 	return (
 		<>
+			{/* <AnimatePresence>
+				{isCopied && (
+					<MotionBox
+						initial={{ opacity: 0, y: 50 }}
+						animate={{ opacity: 1, y: 0 }}
+						exit={{ opacity: 0, y: 50 }}
+						transition={{ duration: 0.5 }}
+						position='fixed'
+						bottom='0'
+						right='0'
+						m='16px'
+						p='24px'
+						fontSize='lg'
+						bg='green.500'
+						color='white'
+						borderRadius='md'
+					>
+						URL copied to clipboard!
+					</MotionBox>
+				)}
+			</AnimatePresence> */}
 			<Flex direction='column' backgroundImage="url('/images/Background.png')" backgroundSize='cover'>
 				<Flex className={styles.header} justifyContent='space-between'>
 					<Flex className={styles.headerleft}>
@@ -78,10 +104,7 @@ export default function Itinerary({ dbItinerary, error }: { dbItinerary: any; er
 							<Text fontSize='4xl' lineHeight='10' fontWeight='bold'>
 								{itinerary.date}
 							</Text>
-							<Button variant='outline' leftIcon={<LinkIcon />} marginTop='5px' marginBottom='10px' width='200px'>
-								{' '}
-								Share Itinerary
-							</Button>
+							<ShareButton url={`https://expawdition.vercel.app/itineraries/${itineraryId}`} />
 						</Flex>
 
 						<Flex direction='column' backgroundColor='white' marginTop='100px'>

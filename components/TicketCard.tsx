@@ -5,6 +5,7 @@ import { theme } from '../pages/_app';
 import { LinkIcon } from '@chakra-ui/icons';
 import { ItineraryEvent } from '@/pages';
 import { useRouter } from 'next/router';
+import ShareButton from './ShareButton';
 
 export default function TicketCard({
 	date,
@@ -41,7 +42,6 @@ export default function TicketCard({
 
 				<Box display='flex' justifyContent='center' alignItems='center'>
 					<Image
-						// src=""
 						src={itineraryEvent.photo}
 						width={350}
 						height={200}
@@ -66,10 +66,7 @@ export default function TicketCard({
 					>
 						See Details
 					</Button>
-					<Button variant='outline' leftIcon={<LinkIcon />}>
-						{' '}
-						Share Itinerary
-					</Button>
+					<ShareButton url={`https://expawdition.vercel.app/itineraries/${id}`} />
 				</Stack>
 			</Flex>
 		</>
