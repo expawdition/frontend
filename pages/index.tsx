@@ -44,7 +44,7 @@ export default function Home({ dbTrips, error }: { dbTrips: any; error: any }) {
 	}, []);
 
 	const handleClickNew = () => {
-		window.location.href = 'https://expawdition-api.onrender.com/planner';
+		window.location.href = 'https://expawdition.vercel.app/planner';
 	};
 
 	return (
